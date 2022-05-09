@@ -25,6 +25,6 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log("connected to database"));
 
-const PORT = 3001;
-
-app.listen(PORT, () => console.log(`server running at ${PORT}`));
+app.listen(process.env.PORT || 3001, () =>
+  console.log(`server running at ${PORT}`)
+);
