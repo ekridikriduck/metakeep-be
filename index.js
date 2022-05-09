@@ -6,13 +6,13 @@ const authenticatedRoute = require("./routes");
 const config = require("./config");
 const app = express();
 
-// const corsOpts = {
-//   origin: "*",
-//   methods: ["GET", "POST"],
-//   allowedHeaders: ["Content-Type", "Authorization"],
-// };
+const corsOpts = {
+  origin: "*",
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 
-app.use(cors());
+app.use(cors(corsOpts));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", authenticatedRoute);
