@@ -5,7 +5,7 @@ const listApplications = async (req, res) => {
   try {
     const { cognitoUser } = req;
     const userID = cognitoUser.sub;
-    const apps = await App.find({ userID });
+    const apps = await App.find({ userId: userID });
     res.status(200).send(apps);
   } catch (err) {
     console.log(err);
